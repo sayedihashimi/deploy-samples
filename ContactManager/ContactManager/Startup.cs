@@ -23,6 +23,16 @@ namespace ContactManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+
+            services.Configure<MyOptions>(Configuration);
+
+            // Registers the following lambda used to configure options.
+            services.Configure<MyOptions>(myOptions =>
+            {
+                myOptions.ContactConnection = Configuration.GetConnectionString("ContactConnection");
+            });
+
             services.AddDbContext<ContactDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("ContactConnection")));
             services.AddMvc();
