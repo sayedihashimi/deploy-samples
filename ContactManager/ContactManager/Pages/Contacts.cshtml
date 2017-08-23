@@ -1,4 +1,42 @@
 ﻿@page
 @model ContactsModel
-@{
-}
+
+<h2>Existing contacts</h2>
+<div id="existingContacts">
+    <ul>
+        @foreach(var contact in Model.Contacts){
+            <li>
+                Firstname: @contact.FirstName<br/>
+                Lastname: @contact.LastName<br />
+                Phone: @contact.Phone<br />
+                Address: @contact.Address<br />
+            </li>
+        }
+    </ul>
+</div>
+
+
+<h2>Add Contact</h2>
+<form method="POST" action="~/Contacts">
+    <div id="newcontact">
+        <ul>
+            <li>
+                <label asp-for="NewContactFirstname">Firstname:</label>
+                <input asp-for="NewContactFirstname" class="form-control" />
+            </li>
+            <li>
+                <label asp-for="NewContactLastname">Lastname:</label>
+                <input asp-for="NewContactLastname" class="form-control" />
+            </li>
+            <li>
+                <label asp-for="NewContactPhone">Phone:</label>
+                <input asp-for="NewContactPhone" class="form-control" />
+            </li>
+            <li>
+                <label asp-for="NewContactAddress">Address:</label>
+                <input asp-for="NewContactAddress" class="form-control" />
+            </li>
+        </ul>
+        <button type="submit" class="btn btn-primary">Add Contact</button>
+    </div>
+</form>
