@@ -1,0 +1,18 @@
+{
+    "AppResourceGroup":{
+        "Name": "sayedcontact-rg",
+        "Location":"South Central US"
+    },
+    "ContactAppSvcPlan":{
+        "Name": "sayedcontactmanager-asp",
+        "Tier": "Standard"
+    },
+    "AppService":{
+        "Name":"sayedcontactmanager-app"
+    }
+}
+// New-AzureRmAppServicePlan -Name ContosoAppServicePlan
+// -Location "South Central US"
+// -ResourceGroupName ContosoAzureResourceGroup
+// -Tier Premium -WorkerSize Large
+// -NumberofWorkers 10
